@@ -32,7 +32,6 @@ public class FrontControllerServletV2 extends HttpServlet {
 
     @Override
     protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        System.out.println("FrontControllerServletV2.service");
 
         String requestURI = request.getRequestURI();
 
@@ -41,8 +40,8 @@ public class FrontControllerServletV2 extends HttpServlet {
             response.setStatus(HttpServletResponse.SC_NOT_FOUND);
             return;
         }
-        MyView process = controller.process(request, response);
-        process.render(request,response);
+        MyView view = controller.process(request, response);
+        view.render(request,response);
 
 
     }
