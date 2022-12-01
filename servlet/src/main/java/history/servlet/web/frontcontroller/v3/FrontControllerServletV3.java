@@ -44,7 +44,7 @@ public class FrontControllerServletV3 extends HttpServlet {
         Map<String, String> paramMap =  createParamMap(request);
         ModelView mv = controller.process(paramMap);
 
-        String viewName = mv.getViewName();//논리 이룸 new-form
+        String viewName = mv.getViewName();//논리 이름만 얻을 수 있다 new-form
 
         MyView view = viewResolver(viewName);
 
@@ -57,7 +57,7 @@ public class FrontControllerServletV3 extends HttpServlet {
         return new MyView("/WEB-INF/views/" + viewName + ".jsp");
     }
 
-    private static Map<String, String>  createParamMap(HttpServletRequest request) {
+    private static Map<String, String>  createParamMap(HttpServletRequest request) {  // request에서 파라미터 모든 네이을 가져온다. 가져온 것들을 키 값으로 설정하고 paramMap에 저장을 해준다
         Map<String,String> paramMap = new HashMap<>();
         request.getParameterNames().asIterator()
                 .forEachRemaining(paramName -> paramMap.put(paramName, request.getParameter(paramName)));

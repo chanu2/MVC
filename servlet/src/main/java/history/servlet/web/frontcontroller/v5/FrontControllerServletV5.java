@@ -58,7 +58,7 @@ public class FrontControllerServletV5 extends HttpServlet {
         Object handler = getHandler(request);  // handler 찾아오기    //MemberFormCONTROLLERv3 반환
                                                  // controller4 사용 할 때 MemberFormControllerV4반환
 
-        if(handler== null){
+        if(handler == null){
             response.setStatus(HttpServletResponse.SC_NOT_FOUND);
             return;
         }
